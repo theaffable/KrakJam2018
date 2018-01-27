@@ -10,8 +10,6 @@ public class ShipMovementController : MonoBehaviour {
 	int _forceUp;
 	[SerializeField]
 	int _forceDown;
-	[SerializeField]
-	int _constantSpeed;
 
 	Vector3 _oldSpeed=Vector3.zero,_newSpeed=Vector3.zero;
 
@@ -19,7 +17,6 @@ public class ShipMovementController : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		_rigidbody = GetComponent<Rigidbody> ();
-		_rigidbody.velocity = new Vector3(_constantSpeed,0,0);
 	}
 	
 	// Update is called once per frame
