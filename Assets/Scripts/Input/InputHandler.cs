@@ -23,16 +23,20 @@ namespace Assets.Scripts.Input
             ClockwiseRotationPrerequisite = new KeySequence(
                 new[]
                 {
+                    KeyCode.UpArrow,
                     KeyCode.RightArrow,
-                    KeyCode.RightArrow
+                    KeyCode.DownArrow,
+                    KeyCode.LeftArrow,
                 }
             );
 
             CounterClockwiseRotationPrerequisite = new KeySequence(
                 new[]
                 {
+                    KeyCode.UpArrow,
                     KeyCode.LeftArrow,
-                    KeyCode.LeftArrow
+                    KeyCode.DownArrow,
+                    KeyCode.RightArrow
                 }
             );
         }
@@ -56,20 +60,20 @@ namespace Assets.Scripts.Input
             }
             else
             {
-                TryReturnToZero();    
+                TryReturnToZero();
             }
         }
 
         IEnumerator Rotate(bool clockwise = true)
         {
-            var rotationCoefficient = clockwise ? 1 : -1;
+            var rotationCoefficient = clockwise ? -1 : 1;
 
             if (!_isRotating)
             {
                 _isRotating = true;
                 for (int i = 0; i < RotationSegments; i++)
                 {
-                    transform.Rotate(new Vector3(0f, 0f, rotationCoefficient* RotationAngle / RotationSegments));
+                    transform.Rotate(new Vector3(0f, 0f, rotationCoefficient * RotationAngle / RotationSegments));
                     yield return new WaitForSeconds(1f / RotationSegments);
                 }
             }
@@ -79,7 +83,7 @@ namespace Assets.Scripts.Input
 
         void TryReturnToZero()
         {
-            if (!_isRotating && Mathf.Abs(transform.eulerAngles.z - _startRotationZAngle) > 0.05f)
+            if (!_isRotating && Mathf.Abs(transform.eulerAngles.z - _startRotationZAngle) > 1f)
             {
                 transform.Rotate(0f, 0f, ReturnRotationSpeed * Time.deltaTime);
             }
