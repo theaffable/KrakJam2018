@@ -6,13 +6,14 @@ namespace Assets.Scripts.Utils
 {
     public class KeySequence : IRotationPrerequisite
     {
-        public KeyCode[] Sequence;
+		public AxisInput[] Sequence;
         private int _sequenceIndex;
         private bool _isDetected;
+		float _tolerance = 0.2f;
 
-        public KeySequence(KeyCode[] seq)
+		public KeySequence(AxisInput[] seq)
         {
-            Sequence = new KeyCode[seq.Length];
+			Sequence = new AxisInput[seq.Length];
             seq.CopyTo(Sequence, 0);
         }
 
@@ -20,11 +21,11 @@ namespace Assets.Scripts.Utils
         {
             if (Sequence.Length > 0)
             {
-                if (UnityInput.GetKeyDown(Sequence[_sequenceIndex]))
+				if (Mathf.Abs(UnityInput.GetAxis("Horizontal")-(Sequence[_sequenceIndex].X))<_tolerance && Mathf.Abs(UnityInput.GetAxis("Vertical")-(Sequence[_sequenceIndex].Y))<_tolerance)
                 {
                     _sequenceIndex++;
                 }
-                else if (UnityInput.anyKeyDown)
+				else if (AnySeqMatch())
                 {
                     _sequenceIndex = 0;
                 }
@@ -42,5 +43,9 @@ namespace Assets.Scripts.Utils
 
             return _isDetected;
         }
+		private bool AnySeqMatch(){
+			return (Mathf.Abs (UnityInput.GetAxis ("Horizontal") - (Sequence [0].X)) < _tolerance && Mathf.Abs (UnityInput.GetAxis ("Vertical") - (Sequence [0].Y)) < _tolerance) ||
+			(Mathf.Abs (UnityInput.GetAxis ("Horizontal") - (Sequence [1].X)) < _tolerance && Mathf.Abs (UnityInput.GetAxis ("Vertical") - (Sequence [1].Y)) < _tolerance);
+		}
     }
 }

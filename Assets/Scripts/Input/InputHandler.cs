@@ -7,6 +7,16 @@ using Assets.Scripts.Sound;
 
 namespace Assets.Scripts.Input
 {
+	public struct AxisInput{
+		public float X;
+		public float Y;
+
+		public AxisInput(float X, float Y){
+			this.X = X;
+			this.Y = Y;
+		}
+	}
+
     public class InputHandler : MonoBehaviour
     {
         public int RotationSegments;
@@ -27,69 +37,68 @@ namespace Assets.Scripts.Input
             _audioSource = GetComponent<AudioSource>();
             _randomSoundManager = GetComponent<RandomSoundClip>();
 
-            ClockwiseRotationPrerequisites = new List<IRotationPrerequisite>()
-            {
-                new KeySequence(
-                    new[]
-                    {
-                        KeyCode.LeftArrow,
-                        KeyCode.UpArrow
-                    }
-                ),
-                new KeySequence(
-                    new[]
-                    {
-                        KeyCode.UpArrow,
-                        KeyCode.RightArrow
-                    }
-                ),
-                new KeySequence(
-                    new[]
-                    {
-                        KeyCode.RightArrow,
-                        KeyCode.DownArrow
-                    }
-                ),
-                new KeySequence(
-                    new[]
-                    {
-                        KeyCode.DownArrow,
-                        KeyCode.LeftArrow
-                    }
-                )
-            };
+			ClockwiseRotationPrerequisites = new List<IRotationPrerequisite>() { 
+				new KeySequence(
+					new[]
+					{
+						new AxisInput(-1,0),
+						new AxisInput(0,-1)
+					}
+				),
+				new KeySequence(
+					new[]
+					{
+						new AxisInput(0,-1),
+						new AxisInput(1,0)
+					}
+				),
+				new KeySequence(
+					new[]
+					{
+						new AxisInput(1,0),
+						new AxisInput(0,1)
+					}
+				),
+				new KeySequence(
+					new[]
+					{
+						
+						new AxisInput(0,1),
+						new AxisInput(-1,0)
+					}
+				)
+			};
 
-            CounterClockwiseRotationPrerequisites = new List<IRotationPrerequisite>()
-            {
-                new KeySequence(
-                    new[]
-                    {
-                        KeyCode.UpArrow,
-                        KeyCode.LeftArrow
-                    }
-                ),
-                new KeySequence(
-                    new[]
-                    {
-                        KeyCode.RightArrow,
-                        KeyCode.UpArrow
-                    }
-                ),
-                new KeySequence(
-                    new[]
-                    {
-                        KeyCode.DownArrow,
-                        KeyCode.RightArrow
-                    }
-                ),
-                new KeySequence(
-                    new[]
-                    {
-                        KeyCode.LeftArrow,
-                        KeyCode.DownArrow
-                    }
-                )
-            };
+			CounterClockwiseRotationPrerequisites = new List<IRotationPrerequisite> () { 
+				new KeySequence(
+					new[]
+					{
+						new AxisInput(0,-1),
+						new AxisInput(-1,0)
+					}
+				),
+				new KeySequence(
+					new[]
+					{
+						new AxisInput(1,0),
+						new AxisInput(0,-1)
+					}
+				),
+				new KeySequence(
+					new[]
+					{
+						new AxisInput(0,1),
+						new AxisInput(1,0)
+					}
+				),
+				new KeySequence(
+					new[]
+					{
+						new AxisInput(-1,0),
+						new AxisInput(0,1)
+					}
+				)
+			};
         }
 
         void Update()
