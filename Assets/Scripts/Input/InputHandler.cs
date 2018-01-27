@@ -103,7 +103,7 @@ namespace Assets.Scripts.Input
             }
             else
             {
-                TryReturnToZero();    
+                TryReturnToZero();
             }
         }
 
@@ -116,7 +116,7 @@ namespace Assets.Scripts.Input
                 _isRotating = true;
                 for (int i = 0; i < RotationSegments; i++)
                 {
-                    transform.Rotate(new Vector3(0f, 0f, rotationCoefficient* RotationAngle / RotationSegments));
+                    transform.Rotate(new Vector3(0f, 0f, rotationCoefficient * RotationAngle / RotationSegments));
                     yield return new WaitForSeconds(1f / RotationSegments);
                 }
             }
