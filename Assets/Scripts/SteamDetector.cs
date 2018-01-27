@@ -4,12 +4,12 @@ using UnityEngine;
 
 public abstract class SteamDetector : MonoBehaviour {
 
-	protected SteamStatusController _steamStatusController;
+	protected CaptainMock _captainMock;
 	int _particleCounter=0;
 
 	// Use this for initialization
 	void Start () {
-		_steamStatusController = FindObjectOfType<SteamStatusController> ();
+		_captainMock = FindObjectOfType<CaptainMock> ();
 	}
 	
 	// Update is called once per frame
