@@ -10,7 +10,8 @@ public class ScoreController : MonoBehaviour {
 
     private float _count;
     private int _score;
-    
+	private bool _gameOver = false;
+
     // Use this for initialization
     void Start ()
     {
@@ -20,17 +21,25 @@ public class ScoreController : MonoBehaviour {
     
     // Update is called once per frame
     void Update () {
-		_count -= Time.deltaTime;
-		if (_count < 0) {
-			_count = _countdown;
-			_score += 100;
-			UpdateScore ();
+		if (!_gameOver) {
+			_count -= Time.deltaTime;
+			if (_count < 0) {
+				_count = _countdown;
+				_score += 100;
+				UpdateScore ();
+			}
 		}
 	}
 
 	public void EnemyHit() {
-		_score += 500;
-		UpdateScore ();
+		if (!_gameOver) {
+			_score += 500;
+			UpdateScore ();
+	    }
+	}
+
+	public void Stop() {
+		_gameOver = true;
 	}
 
 	private void UpdateScore() {
