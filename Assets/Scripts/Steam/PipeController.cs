@@ -1,5 +1,5 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
+using Assets.Scripts.Sound;
 using UnityEngine;
 
 public class PipeController : MonoBehaviour {
@@ -24,12 +24,17 @@ public class PipeController : MonoBehaviour {
 
 	private bool _isRotating = false;
 	private float _startRotationZAngle;
-	private Quaternion _currentDestQuaternion;
+
+	private AudioSource _audioSource;
+	private RandomSoundClip _clipManager;
 
 	private ColliderLocalization previous = ColliderLocalization.Top;
 
 	void Start()
 	{
+		_audioSource = GetComponent<AudioSource>();
+		_clipManager = GetComponent<RandomSoundClip>();
+		
 		_startRotationZAngle = transform.eulerAngles.z;
 	}
 
@@ -38,12 +43,21 @@ public class PipeController : MonoBehaviour {
 		TryReturnToZero ();
 	}
 
+	private void EmitSounds()
+	{
+		if (_audioSource.isPlaying) return;
+		_audioSource.clip = _clipManager.GetClip();
+		print(_audioSource.clip);
+		_audioSource.Play();
+	}
+
 	IEnumerator Rotate(bool clockwise = true)
 	{
 		var rotationCoefficient = clockwise ? -1 : 1;
 		if (!_isRotating)
 		{
 			_isRotating = true;
+			EmitSounds();
 			for (int i = 0; i < RotationSegments; i++)
 			{
 				transform.Rotate(new Vector3(0f, 0f, rotationCoefficient * RotationAngle / RotationSegments));
