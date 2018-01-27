@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Obstacle
   - PlayerCollider
+  - Death
   layers:
   - Default
   - TransparentFX
