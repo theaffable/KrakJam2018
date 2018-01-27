@@ -25,7 +25,7 @@ public class HealthController : MonoBehaviour {
 
 	void Init(){
 		for (int x = 0; x < _maxHealth; x++) {
-			_hearths.Add (Instantiate(_hearthPrefab, new Vector3 (20 * x, 0, 0)+this.transform.position, Quaternion.identity));
+			_hearths.Add (Instantiate(_hearthPrefab, new Vector3 (5 * x, 0, 0)+this.transform.position, Quaternion.identity));
 			_hearths [x].transform.parent = this.transform;
 		}
 		_health = _maxHealth;
