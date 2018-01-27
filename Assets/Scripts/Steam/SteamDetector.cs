@@ -4,12 +4,15 @@ using UnityEngine;
 
 public abstract class SteamDetector : MonoBehaviour {
 
-	protected CaptainMock _captainMock;
+	protected SteamStatusController _steamStatusController;
 	int _particleCounter=0;
+
+	[SerializeField]
+	protected int _id;
 
 	// Use this for initialization
 	void Start () {
-		_captainMock = FindObjectOfType<CaptainMock> ();
+		_steamStatusController = FindObjectOfType<SteamStatusController> ();
 	}
 	
 	// Update is called once per frame
@@ -18,7 +21,7 @@ public abstract class SteamDetector : MonoBehaviour {
 	}
 
 	void OnParticleCollision(GameObject other) {
-		if (_particleCounter >= 100) {
+		if (_particleCounter >= 20) {
 			_particleCounter = 0;
 			SteamActive();
 		}

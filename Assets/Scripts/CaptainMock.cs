@@ -67,7 +67,6 @@ public class CaptainMock : MonoBehaviour {
 	{
 		_score = 0;
 		_count = _countdown;
-		ChangeOrder ();
 	}
 	
 	// Update is called once per frame
@@ -75,8 +74,8 @@ public class CaptainMock : MonoBehaviour {
 		_count -= Time.deltaTime;
              if ( _count < 0 )
              {
-	             _count = _countdown;
-				ChangeOrder ();           
+	            _count = _countdown;
+		   		_score += 100;         
              }
 	}
 
