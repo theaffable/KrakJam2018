@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SteamStatusController : MonoBehaviour {
+public class SteamStatusController : MonoBehaviour
+{
 
+	
+	
 	int _upLvl = 0;
 	int _downLvl = 0;
 	int _forwardLvl = 0;
@@ -13,7 +16,11 @@ public class SteamStatusController : MonoBehaviour {
 	List<int> _idsWorkingOnForward = new List<int>();
 
 	[SerializeField]
-	ShipMovementController _shipController;
+	ShipMovementController _shipMovementController;
+	[SerializeField]
+	ShipShootController _shipShootController;
+
+	
 
 	// Use this for initialization
 	void Start () {
@@ -25,12 +32,34 @@ public class SteamStatusController : MonoBehaviour {
 		
 	}
 
+	public void ShootLeftActive()
+	{
+		_shipShootController.Shoot(Vector3.left);		
+	}
+	
+	public void ShootTopActive()
+	{
+		_shipShootController.Shoot(Vector3.up);	
+	}
+	
+	public void ShootRightActive()
+	{
+		_shipShootController.Shoot(Vector3.right);
+	}
+	
+	public void ShootDownActive()
+	{
+		_shipShootController.Shoot(Vector3.down);
+	}
+
+	
+
 	public void UpActive(int id){
 		if (!_idsWorkingOnUp.Contains (id)) {
 			_upLvl++;
 			RemoveFromWorkingLists (id);
 			_idsWorkingOnUp.Add (id);
-			_shipController.Move(_upLvl,_downLvl,_forwardLvl);
+			_shipMovementController.Move(_upLvl,_downLvl,_forwardLvl);
 		}
 		Debug.Log ("UP");
 	}
@@ -40,7 +69,7 @@ public class SteamStatusController : MonoBehaviour {
 			_downLvl++;
 			RemoveFromWorkingLists (id);
 			_idsWorkingOnDown.Add (id);
-			_shipController.Move(_upLvl,_downLvl,_forwardLvl);
+			_shipMovementController.Move(_upLvl,_downLvl,_forwardLvl);
 		}
 		Debug.Log ("Down");
 	}
@@ -50,7 +79,7 @@ public class SteamStatusController : MonoBehaviour {
 			_forwardLvl++;
 			RemoveFromWorkingLists (id);
 			_idsWorkingOnForward.Add (id);
-			_shipController.Move(_upLvl,_downLvl,_forwardLvl);
+			_shipMovementController.Move(_upLvl,_downLvl,_forwardLvl);
 		}
 		Debug.Log ("Forward");
 	}
