@@ -1629,6 +1629,78 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1001 &188592288
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4910840533277912, guid: 509309c7776372d40b6af5fc8be44e38, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 442.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910840533277912, guid: 509309c7776372d40b6af5fc8be44e38, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: -106
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910840533277912, guid: 509309c7776372d40b6af5fc8be44e38, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: -47.9375
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910840533277912, guid: 509309c7776372d40b6af5fc8be44e38, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: -0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910840533277912, guid: 509309c7776372d40b6af5fc8be44e38, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910840533277912, guid: 509309c7776372d40b6af5fc8be44e38, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910840533277912, guid: 509309c7776372d40b6af5fc8be44e38, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4910840533277912, guid: 509309c7776372d40b6af5fc8be44e38, type: 2}
+      propertyPath: m_RootOrder
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 114688517477167252, guid: 509309c7776372d40b6af5fc8be44e38,
+        type: 2}
+      propertyPath: player0Engine
+      value: 
+      objectReference: {fileID: 447816405}
+    - target: {fileID: 114688517477167252, guid: 509309c7776372d40b6af5fc8be44e38,
+        type: 2}
+      propertyPath: player1Engine
+      value: 
+      objectReference: {fileID: 57346662}
+    - target: {fileID: 114688517477167252, guid: 509309c7776372d40b6af5fc8be44e38,
+        type: 2}
+      propertyPath: player0Ship
+      value: 
+      objectReference: {fileID: 1199408636}
+    - target: {fileID: 114688517477167252, guid: 509309c7776372d40b6af5fc8be44e38,
+        type: 2}
+      propertyPath: player1Ship
+      value: 
+      objectReference: {fileID: 1219142460}
+    - target: {fileID: 114688517477167252, guid: 509309c7776372d40b6af5fc8be44e38,
+        type: 2}
+      propertyPath: player0Shoot
+      value: 
+      objectReference: {fileID: 1411704490}
+    - target: {fileID: 114688517477167252, guid: 509309c7776372d40b6af5fc8be44e38,
+        type: 2}
+      propertyPath: player1Shoot
+      value: 
+      objectReference: {fileID: 376419464}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 509309c7776372d40b6af5fc8be44e38, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1 &200013908
 GameObject:
   m_ObjectHideFlags: 0
@@ -3924,7 +3996,6 @@ GameObject:
   - component: {fileID: 562075370}
   - component: {fileID: 562075369}
   - component: {fileID: 562075368}
-  - component: {fileID: 562075367}
   - component: {fileID: 562075376}
   m_Layer: 9
   m_Name: Ship
@@ -3933,25 +4004,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &562075367
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 562075366}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e9626531f3a08d449fd2bd064ac41e3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player0Engine: {fileID: 447816405}
-  player1Engine: {fileID: 57346662}
-  player0Ship: {fileID: 1199408636}
-  player1Ship: {fileID: 1219142460}
-  player0Shoot: {fileID: 1411704490}
-  player1Shoot: {fileID: 376419464}
-  player0Switch: 113
-  player1Switch: 101
 --- !u!114 &562075368
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4101,6 +4153,7 @@ MonoBehaviour:
     type: 2}
   shootCd: 4
   _speed: 100
+  _shotLifetime: 2
 --- !u!4 &576499755
 Transform:
   m_ObjectHideFlags: 0
