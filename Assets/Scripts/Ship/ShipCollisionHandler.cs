@@ -1,15 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShipCollisionHandler : MonoBehaviour {
 
 
 	[SerializeField]
 	ShipHealthController _shipHealthController;
+	[SerializeField]
+	Text _gameOverText;
+	[SerializeField]
+	ScoreController _scoreController;
+
 	// Use this for initialization
 	void Start () {
-		
+		_gameOverText.gameObject.SetActive (false);
 	}
 	
 	// Update is called once per frame
@@ -23,7 +29,8 @@ public class ShipCollisionHandler : MonoBehaviour {
 			Destroy (col.gameObject);
 		}
 		if (col.CompareTag("Death")) {
-			Debug.Log ("Statek zmarł");
+			_gameOverText.gameObject.SetActive (true);
+			_scoreController.Stop ();
 		}
 	}
 }

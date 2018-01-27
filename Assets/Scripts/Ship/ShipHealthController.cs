@@ -10,19 +10,15 @@ public class ShipHealthController : MonoBehaviour {
 	int _health = 0;
 
 	[SerializeField]
-	HealthDisplayer[] _healthDisplayer;
+	HealthDisplayer _healthDisplayer;
 
 	// Use this for initialization
 	void Start () {
-		foreach (HealthDisplayer hd in _healthDisplayer) {
-			hd.Init (_maxHealth);
-		}
+		_healthDisplayer.Init (_maxHealth);
 	}
 
 	public void Damage(){
 		_health--;
-		foreach (HealthDisplayer hd in _healthDisplayer) {
-			hd.HideHeart ();
-		}
+		_healthDisplayer.HideHeart ();
 	}
 }
