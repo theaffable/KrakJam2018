@@ -8,6 +8,8 @@ public class ShipShootController : MonoBehaviour
 	[SerializeField] private GameObject _cannonBall;
 	[SerializeField] private int shootCd = 4;
 	[SerializeField] private int _speed = 4;
+	[SerializeField] public float _shotLifetime = 2.0f;
+
 	private bool leftShoot = false;
 	private bool rightShoot = false;
 	private bool topShoot = false;
@@ -54,6 +56,7 @@ public class ShipShootController : MonoBehaviour
 		}
 		
 		GameObject instance = Instantiate(_cannonBall, transform.position, Quaternion.identity);
+		Destroy (instance, _shotLifetime);
 		instance.GetComponent<Rigidbody>().velocity=force*_speed;
 	}
 
