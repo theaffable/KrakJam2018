@@ -3073,7 +3073,7 @@ GameObject:
   - component: {fileID: 510270039}
   m_Layer: 0
   m_Name: ShipArea
-  m_TagString: Untagged
+  m_TagString: ShipArea
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5582,6 +5582,48 @@ Transform:
   m_Father: {fileID: 575031683}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &734675959
+Prefab:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2070755983}
+    m_Modifications:
+    - target: {fileID: 4108579022274756, guid: 410fb1ae3ee5ecb438ad7c5478b07f22, type: 2}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4108579022274756, guid: 410fb1ae3ee5ecb438ad7c5478b07f22, type: 2}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4108579022274756, guid: 410fb1ae3ee5ecb438ad7c5478b07f22, type: 2}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4108579022274756, guid: 410fb1ae3ee5ecb438ad7c5478b07f22, type: 2}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4108579022274756, guid: 410fb1ae3ee5ecb438ad7c5478b07f22, type: 2}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4108579022274756, guid: 410fb1ae3ee5ecb438ad7c5478b07f22, type: 2}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4108579022274756, guid: 410fb1ae3ee5ecb438ad7c5478b07f22, type: 2}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4108579022274756, guid: 410fb1ae3ee5ecb438ad7c5478b07f22, type: 2}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 100100000, guid: 410fb1ae3ee5ecb438ad7c5478b07f22, type: 2}
+  m_IsPrefabParent: 0
 --- !u!1001 &741032845
 Prefab:
   m_ObjectHideFlags: 0
@@ -13043,6 +13085,49 @@ Camera:
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
   m_StereoMirrorMode: 0
+--- !u!1 &1200907158
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 1200907160}
+  - component: {fileID: 1200907159}
+  m_Layer: 0
+  m_Name: ObstacleSpawner
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1200907159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1200907158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa034db4c4910f543a194bd0639fc68e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ShipAreaTag: ShipArea
+  SpawnDelay: 10
+  Prefab: {fileID: 1939518620943328, guid: 4a1e75ba7b17d2b4c9730524e6e1a35f, type: 2}
+--- !u!4 &1200907160
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1200907158}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10.142853, y: -730.8922, z: 117.34665}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1219142456
 GameObject:
   m_ObjectHideFlags: 0

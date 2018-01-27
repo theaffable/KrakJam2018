@@ -24,6 +24,7 @@ public class PipeController : MonoBehaviour {
 
 	private bool _isRotating = false;
 	private float _startRotationZAngle;
+	private Quaternion _startRotation;
 
 	private AudioSource _audioSource;
 	private RandomSoundClip _clipManager;
@@ -36,6 +37,7 @@ public class PipeController : MonoBehaviour {
 		_clipManager = GetComponent<RandomSoundClip>();
 		
 		_startRotationZAngle = transform.eulerAngles.z;
+		_startRotation = transform.rotation;
 	}
 
 	void Update()
@@ -72,7 +74,7 @@ public class PipeController : MonoBehaviour {
 	{
 		if (Mathf.Abs(transform.eulerAngles.z - _startRotationZAngle) > 1f)
 		{
-			transform.Rotate(0f, 0f, ReturnRotationSpeed * Time.deltaTime);
+			transform.rotation = Quaternion.RotateTowards(transform.rotation, _startRotation, ReturnRotationSpeed * Time.deltaTime);
 		}
 	}
 

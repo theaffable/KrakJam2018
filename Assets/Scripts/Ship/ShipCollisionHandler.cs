@@ -18,12 +18,13 @@ public class ShipCollisionHandler : MonoBehaviour {
 	}
 
 	public void OnTriggerEnter(Collider col){
-		if (col.CompareTag("Obstacle")) {
+		if (col.gameObject.CompareTag("Obstacle")) {
 			_shipHealthController.Damage ();
 			Destroy (col.gameObject);
 		}
-		if (col.CompareTag("Death")) {
+		if (col.gameObject.CompareTag("Death")) {
 			Debug.Log ("Statek zmarł");
+			Destroy(gameObject);
 		}
 	}
 }
