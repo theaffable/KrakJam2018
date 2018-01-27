@@ -21,7 +21,7 @@ public class HealthDisplayer : MonoBehaviour {
 
 	public void Init(int maxHealth){
 		for (int x = 0; x < maxHealth; x++) {
-			_hearths.Add (Instantiate(_hearthPrefab, new Vector3 (5 * x, 0, 0)+this.transform.position, Quaternion.identity));
+			_hearths.Add (Instantiate(_hearthPrefab, new Vector3 (50 * x, 0, 0)+this.transform.position, Quaternion.identity));
 			_hearths [x].transform.parent = this.transform;
 		}
 		_healthIndex = maxHealth;

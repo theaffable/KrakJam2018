@@ -6,7 +6,7 @@ public class ShipCollisionHandler : MonoBehaviour {
 
 
 	[SerializeField]
-	ShipHealthController _shipHealthController;
+	private ShipHealthController _shipHealthController;
 	// Use this for initialization
 	void Start () {
 		
