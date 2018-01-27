@@ -6,7 +6,7 @@ public class ShipCollisionHandler : MonoBehaviour {
 
 
 	[SerializeField]
-	private ShipHealthController _shipHealthController;
+	ShipHealthController _shipHealthController;
 	// Use this for initialization
 	void Start () {
 		
@@ -18,9 +18,12 @@ public class ShipCollisionHandler : MonoBehaviour {
 	}
 
 	public void OnTriggerEnter(Collider col){
-		if (col.gameObject.tag == "Obstacle") {
+		if (col.CompareTag("Obstacle")) {
 			_shipHealthController.Damage ();
 			Destroy (col.gameObject);
+		}
+		if (col.CompareTag("Death")) {
+			Debug.Log ("Statek zmarł");
 		}
 	}
 }
