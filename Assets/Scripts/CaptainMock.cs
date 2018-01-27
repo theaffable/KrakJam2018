@@ -37,9 +37,9 @@ public class CaptainMock : MonoBehaviour {
 	
 	private class CaptainOrder
 	{
-		private static readonly Order LeftMsg = new Order("Hard-a-port!", new Pipe(1, PipeLocation.Left));
-		private static readonly Order RightMsg = new Order("Hard-a-starboard!", new Pipe(1, PipeLocation.Right));
-		private static readonly Order CenterMsg = new Order("Full steam ahead!", new Pipe(1, PipeLocation.Center));
+		private static readonly Order LeftMsg = new Order("Hard-a-port!(<)", new Pipe(1, PipeLocation.Left));
+		private static readonly Order RightMsg = new Order("Hard-a-starboard!(>)", new Pipe(1, PipeLocation.Right));
+		private static readonly Order CenterMsg = new Order("Full steam ahead!(^)", new Pipe(1, PipeLocation.Center));
 
 		private static readonly Order[] Messages = { LeftMsg, RightMsg, CenterMsg };
 
@@ -49,9 +49,9 @@ public class CaptainMock : MonoBehaviour {
 		}
 		
 	}
-
+	[SerializeField]
 	private Text _scoreText;
-	
+	[SerializeField]
 	private Text _captainMessage;
 	
 	[SerializeField] private float _countdown = 0.5f;
@@ -67,8 +67,7 @@ public class CaptainMock : MonoBehaviour {
 	{
 		_score = 0;
 		_count = _countdown;
-		_captainMessage = GetComponent<Text>();
-		_scoreText = GameObject.Find("Score").GetComponent<Text>();
+		ChangeOrder ();
 	}
 	
 	// Update is called once per frame
@@ -77,10 +76,15 @@ public class CaptainMock : MonoBehaviour {
              if ( _count < 0 )
              {
 	             _count = _countdown;
-	             _order = CaptainOrder.RandomOrder();
-	             _captainMessage.text = _order.Message;
+				ChangeOrder ();           
              }
 	}
+
+	private void ChangeOrder(){
+		_order = CaptainOrder.RandomOrder();
+		_captainMessage.text = _order.Message;
+	}
+
 
 	public void CheckForPoints(Pipe pipe)
 	{
