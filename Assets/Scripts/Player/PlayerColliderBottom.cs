@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerColliderBottom : PlayerCollider {
+public class PlayerColliderBottom : MonoBehaviour, IPlayerCollider {
 
-	override public void Hit(){
+	[SerializeField]
+	private PipeController _pipeController;
+
+	public void Hit(){
 		_pipeController.BottomHit();
 	}
 }

@@ -16,7 +16,7 @@ public class MarkerCollider : MonoBehaviour {
 
 	public void OnTriggerEnter(Collider col) {
 		if (col.gameObject.CompareTag("PlayerCollider")) {
-			col.gameObject.GetComponent<PlayerCollider>().Hit();
+			col.gameObject.GetComponent<IPlayerCollider>().Hit();
 		}
 	}
 }

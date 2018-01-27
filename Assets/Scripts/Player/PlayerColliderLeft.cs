@@ -2,9 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerColliderLeft : PlayerCollider {
+public class PlayerColliderLeft : MonoBehaviour, IPlayerCollider {
 
-	override public void Hit(){
+	[SerializeField]
+	private PipeController _pipeController;
+
+	public void Hit(){
 		_pipeController.LeftHit();
 	}
 }
