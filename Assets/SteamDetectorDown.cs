@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SteamDetectorDown : SteamDetector {
 
-	override void SteamActive(){
+	override protected void SteamActive(){
 		_steamStatusController.DownActive();
 	}
 }

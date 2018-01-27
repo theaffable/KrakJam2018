@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class SteamDetectorForward : SteamDetector{
 
-	override void SteamActive(){
+	override protected void SteamActive(){
 		_steamStatusController.ForwardActive();
 	}
 }
