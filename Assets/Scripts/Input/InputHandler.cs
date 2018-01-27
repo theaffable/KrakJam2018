@@ -41,30 +41,30 @@ namespace Assets.Scripts.Input
 				new KeySequence(
 					new[]
 					{
-						new AxisInput(-1,0),
-						new AxisInput(0,-1)
-					}
-				),
-				new KeySequence(
-					new[]
-					{
-						new AxisInput(0,-1),
-						new AxisInput(1,0)
-					}
-				),
-				new KeySequence(
-					new[]
-					{
-						new AxisInput(1,0),
+						new AxisInput(-1,-1),
 						new AxisInput(0,1)
 					}
 				),
 				new KeySequence(
 					new[]
 					{
-						
 						new AxisInput(0,1),
-						new AxisInput(-1,0)
+						new AxisInput(1,1)
+					}
+				),
+				new KeySequence(
+					new[]
+					{
+						new AxisInput(1,1),
+						new AxisInput(0,-1)
+					}
+				),
+				new KeySequence(
+					new[]
+					{
+						
+						new AxisInput(0,-1),
+						new AxisInput(-1,-1)
 					}
 				)
 			};
@@ -73,29 +73,29 @@ namespace Assets.Scripts.Input
 				new KeySequence(
 					new[]
 					{
-						new AxisInput(0,-1),
-						new AxisInput(-1,0)
-					}
-				),
-				new KeySequence(
-					new[]
-					{
-						new AxisInput(1,0),
-						new AxisInput(0,-1)
-					}
-				),
-				new KeySequence(
-					new[]
-					{
 						new AxisInput(0,1),
-						new AxisInput(1,0)
+						new AxisInput(-1,-1)
 					}
 				),
 				new KeySequence(
 					new[]
 					{
-						new AxisInput(-1,0),
+						new AxisInput(1,1),
 						new AxisInput(0,1)
+					}
+				),
+				new KeySequence(
+					new[]
+					{
+						new AxisInput(0,-1),
+						new AxisInput(1,1)
+					}
+				),
+				new KeySequence(
+					new[]
+					{
+						new AxisInput(-1,-1),
+						new AxisInput(0,-1)
 					}
 				)
 			};

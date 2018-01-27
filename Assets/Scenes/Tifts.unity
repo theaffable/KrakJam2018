@@ -290,7 +290,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14d0b3c27ae215249b562f10c8777e9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  countdown: 5
+  _scoreText: {fileID: 0}
+  _captainMessage: {fileID: 0}
+  _countdown: 0.5
 --- !u!1 &447816401
 GameObject:
   m_ObjectHideFlags: 0
@@ -538,7 +540,7 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: 2363932846370c5419513b2c0576f884, type: 2}
+  - {fileID: 2100000, guid: 10cef66076444524b8d1f7804d9584e5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
