@@ -21,7 +21,7 @@ public class ShipMovementController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		_rigidbody.velocity = Vector3.Lerp (_oldSpeed, _newSpeed, 0.5f); //0.5 wyznaczone doswiadczalnie xd
+		_rigidbody.velocity = Vector3.Lerp (_oldSpeed, _newSpeed, 0.2f); //0.5 wyznaczone doswiadczalnie xd
 	}
 
 	public void Move(int forceLvlUp, int forceLvlDown, int forceLvlForward){

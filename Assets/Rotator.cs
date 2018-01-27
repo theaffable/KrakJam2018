@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class Rotator : MonoBehaviour {
 
-	void Update(){
-		/*
-		float x = Input.GetAxis ("Horizontal");
-		float y = Input.GetAxis ("Vertical");
-		if (x != 0.0f || y != 0.0f) {
-			float _angle = Mathf.Atan2 (y, x) * Mathf.Rad2Deg;
-			if(Mathf.Abs(_angle-transform.eulerAngles.z)<20)
-				transform.eulerAngles = new Vector3 (0,0,_angle);
-		}*/
+	[SerializeField]
+	int id;
 
-		transform.Rotate (0.0f,0.0f,Input.GetAxis("Horizontal"));
+	void Update(){
+		if(id==0)
+			transform.Rotate (0.0f,0.0f,Input.GetAxis("Horizontal"));
+		if(id==1)
+			transform.Rotate (0.0f,0.0f,Input.GetAxis("Vertical"));
 	}
 }

@@ -10,24 +10,19 @@ public class ShipHealthController : MonoBehaviour {
 	int _health = 0;
 
 	[SerializeField]
-	HealthDisplayer _healthDisplayer;
+	HealthDisplayer[] _healthDisplayer;
 
 	// Use this for initialization
 	void Start () {
-		_healthDisplayer.Init (_maxHealth);
+		foreach (HealthDisplayer hd in _healthDisplayer) {
+			hd.Init (_maxHealth);
+		}
 	}
 
 	public void Damage(){
 		_health--;
-		_healthDisplayer.HideHeart ();
+		foreach (HealthDisplayer hd in _healthDisplayer) {
+			hd.HideHeart ();
+		}
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		if (Input.GetKeyDown (KeyCode.Q))
-			_healthDisplayer.HideHeart ();	
-		if (Input.GetKeyDown (KeyCode.R))
-			_healthDisplayer.Reset (_maxHealth);	
-	}
-
 }
