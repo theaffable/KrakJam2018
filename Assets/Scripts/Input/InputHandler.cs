@@ -3,6 +3,7 @@ using Assets.Scripts.Utils;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using Assets.Scripts.Sound;
 
 namespace Assets.Scripts.Input
 {
@@ -11,79 +12,84 @@ namespace Assets.Scripts.Input
         public int RotationSegments;
         public float ReturnRotationSpeed;
         public float RotationAngle;
-		public IList<IRotationPrerequisite> ClockwiseRotationPrerequisites;
-		public IList<IRotationPrerequisite> CounterClockwiseRotationPrerequisites;
+        public IList<IRotationPrerequisite> ClockwiseRotationPrerequisites;
+        public IList<IRotationPrerequisite> CounterClockwiseRotationPrerequisites;
 
         private bool _isRotating = false;
         private float _startRotationZAngle;
         private Quaternion _currentDestQuaternion;
+        private AudioSource _audioSource;
+        private RandomSoundClip _randomSoundManager;
 
         void Start()
         {
             _startRotationZAngle = transform.eulerAngles.z;
+            _audioSource = GetComponent<AudioSource>();
+            _randomSoundManager = GetComponent<RandomSoundClip>();
 
-			ClockwiseRotationPrerequisites = new List<IRotationPrerequisite>() { 
-				new KeySequence(
-					new[]
-					{
-						KeyCode.LeftArrow,
-						KeyCode.UpArrow
-					}
-				),
-				new KeySequence(
-					new[]
-					{
-						KeyCode.UpArrow,
-						KeyCode.RightArrow
-					}
-				),
-				new KeySequence(
-					new[]
-					{
-						KeyCode.RightArrow,
-						KeyCode.DownArrow
-					}
-				),
-				new KeySequence(
-					new[]
-					{
-						
-						KeyCode.DownArrow,
-						KeyCode.LeftArrow
-					}
-				)
-			};
+            ClockwiseRotationPrerequisites = new List<IRotationPrerequisite>()
+            {
+                new KeySequence(
+                    new[]
+                    {
+                        KeyCode.LeftArrow,
+                        KeyCode.UpArrow
+                    }
+                ),
+                new KeySequence(
+                    new[]
+                    {
+                        KeyCode.UpArrow,
+                        KeyCode.RightArrow
+                    }
+                ),
+                new KeySequence(
+                    new[]
+                    {
+                        KeyCode.RightArrow,
+                        KeyCode.DownArrow
+                    }
+                ),
+                new KeySequence(
+                    new[]
+                    {
+                        KeyCode.DownArrow,
+                        KeyCode.LeftArrow
+                    }
+                )
+            };
 
-			CounterClockwiseRotationPrerequisites = new List<IRotationPrerequisite> () { 
-				new KeySequence(
-					new[]
-					{
-						KeyCode.UpArrow,
-						KeyCode.LeftArrow
-					}
-				),
-				new KeySequence(
-					new[]
-					{
-						KeyCode.RightArrow,
-						KeyCode.UpArrow
-					}
-				),
-				new KeySequence(
-					new[]
-					{
-						KeyCode.DownArrow,
-						KeyCode.RightArrow
-					}
-				),
-				new KeySequence(
-					new[]
-					{
-						KeyCode.LeftArrow,
-						KeyCode.DownArrow
-					}
-				)
-			};
+            CounterClockwiseRotationPrerequisites = new List<IRotationPrerequisite>()
+            {
+                new KeySequence(
+                    new[]
+                    {
+                        KeyCode.UpArrow,
+                        KeyCode.LeftArrow
+                    }
+                ),
+                new KeySequence(
+                    new[]
+                    {
+                        KeyCode.RightArrow,
+                        KeyCode.UpArrow
+                    }
+                ),
+                new KeySequence(
+                    new[]
+                    {
+                        KeyCode.DownArrow,
+                        KeyCode.RightArrow
+                    }
+                ),
+                new KeySequence(
+                    new[]
+                    {
+                        KeyCode.LeftArrow,
+                        KeyCode.DownArrow
+                    }
+                )
+            };
         }
 
         void Update()
@@ -93,11 +99,11 @@ namespace Assets.Scripts.Input
 
         void DoRotate()
         {
-			if (ClockwiseRotationPrerequisites.Any(p => p.ConditionMet()))
+            if (ClockwiseRotationPrerequisites.Any(p => p.ConditionMet()))
             {
                 StartCoroutine(Rotate());
             }
-			else if (CounterClockwiseRotationPrerequisites.Any(p => p.ConditionMet()))
+            else if (CounterClockwiseRotationPrerequisites.Any(p => p.ConditionMet()))
             {
                 StartCoroutine(Rotate(false));
             }
@@ -113,6 +119,9 @@ namespace Assets.Scripts.Input
 
             if (!_isRotating)
             {
+                _audioSource.clip = _randomSoundManager.GetClip();
+                _audioSource.Play();
+                
                 _isRotating = true;
                 for (int i = 0; i < RotationSegments; i++)
                 {
