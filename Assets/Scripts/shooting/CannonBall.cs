@@ -9,11 +9,11 @@ public class CannonBall : MonoBehaviour {
 
 	private void OnTriggerEnter(Collider other)
 	{
-		Destroy(other.gameObject);
-		Destroy(this.gameObject);
+		Destroy(gameObject);
 
 		if (other.CompareTag ("Obstacle")) {
 			_scoreController.EnemyHit ();
+			Destroy(other.gameObject);
 		}
 	}
 }
