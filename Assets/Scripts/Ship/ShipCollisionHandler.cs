@@ -18,7 +18,7 @@ public class ShipCollisionHandler : MonoBehaviour
 
     public void OnTriggerEnter(Collider col)
     {
-        if (col.CompareTag("Obstacle"))
+        if (col.CompareTag("Obstacle") || col.CompareTag("EnemyCannonBall") )
         {
             _shipHealthController.Damage();
             Destroy(col.gameObject);

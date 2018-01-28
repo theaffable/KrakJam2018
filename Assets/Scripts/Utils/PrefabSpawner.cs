@@ -30,7 +30,14 @@ namespace Utils
                     shipTransform.position.z
                 );
 
-                Instantiate(Prefab, spawnLocation, Quaternion.Euler(-90,0,0));
+                if (LayerMask.LayerToName(Prefab.layer) == "OnlyPlayer")
+                {
+                    Instantiate(Prefab, spawnLocation, Quaternion.Euler(-90,180,90));
+                }
+                else
+                {
+                    Instantiate(Prefab, spawnLocation, Quaternion.Euler(-90,0,0));
+                }           
                 yield return new WaitForSeconds(SpawnDelay);
             }
         }

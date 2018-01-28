@@ -9,6 +9,7 @@ TagManager:
   - Death
   - Ship
   - ShipArea
+  - EnemyCannonBall
   layers:
   - Default
   - TransparentFX
@@ -20,7 +21,7 @@ TagManager:
   - 
   - NotPlayer
   - Player
-  - 
+  - OnlyPlayer
   - 
   - 
   - 
