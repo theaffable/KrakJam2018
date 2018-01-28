@@ -29,6 +29,14 @@ public class PlayerController : MonoBehaviour {
 				AV = Input.GetAxis ("VerticalR");
 				AH = Input.GetAxis ("HorizontalR");
 			}
+			if (player == 4) {
+				AV = Input.GetAxis ("Vertical2");
+				AH = Input.GetAxis ("Horizontal2");
+			}
+			if (player == 3) { //Don't ask why those numbers are flipped, I am not sure myself, I just know it works.
+				AV = Input.GetAxis ("VerticalR2");
+				AH = Input.GetAxis ("HorizontalR2");
+			}
 			//first make sure stick vals are higher than the tolerance
 					float angle = Mathf.Atan2 (AH, AV) * Mathf.Rad2Deg;
 					transform.rotation = Quaternion.Euler (new Vector3 (0, 180f, angle));
