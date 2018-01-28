@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using UnityEditorInternal;
 using UnityEngine;
 
 public class SteamStatusController : MonoBehaviour
@@ -20,16 +21,12 @@ public class SteamStatusController : MonoBehaviour
 	[SerializeField]
 	ShipShootController _shipShootController;
 
-	
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+	private void Update()
+	{
+		if (Application.isEditor && Input.GetKey(KeyCode.Space)) // test purposes
+		{
+			ShootRightActive();
+		}
 	}
 
 	public void ShootLeftActive()

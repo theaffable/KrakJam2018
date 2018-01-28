@@ -10,6 +10,9 @@ namespace Utils
             
         public GameObject Prefab;
 
+        [SerializeField]
+        GameObject shipObject;
+
         void Start()
         {
             StartCoroutine(SpawnLoop());
@@ -22,12 +25,19 @@ namespace Utils
                 var shipTransform = GameObject.FindWithTag(ShipAreaTag).transform;
                 print(shipTransform);
                 var spawnLocation = new Vector3(
-                    shipTransform.position.x + Random.Range(15f, 200f),
-                    shipTransform.position.y + Random.Range(15f, 200f),
+                    Random.Range(50, 200f) + shipObject.transform.position.x,
+                    shipTransform.position.y + Random.Range(-70f, 70f),    
                     shipTransform.position.z
                 );
 
-                Instantiate(Prefab, spawnLocation, Quaternion.identity);
+                if (LayerMask.LayerToName(Prefab.layer) == "OnlyPlayer")
+                {
+                    Instantiate(Prefab, spawnLocation, Quaternion.Euler(-90,180,90));
+                }
+                else
+                {
+                    Instantiate(Prefab, spawnLocation, Quaternion.Euler(-90,0,0));
+                }           
                 yield return new WaitForSeconds(SpawnDelay);
             }
         }

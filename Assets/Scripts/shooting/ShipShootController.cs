@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.ComponentModel;
 using UnityEngine;
 
 public class ShipShootController : MonoBehaviour
@@ -18,6 +17,13 @@ public class ShipShootController : MonoBehaviour
 	private int rightCounter = 0;
 	private int topCounter = 0;
 	private int downCounter = 0;
+
+	private AudioSource _audio;
+	
+	void Start()
+	{
+		_audio = GetComponent<AudioSource>();
+	}
 	
 	public void Shoot(Vector3 force)
 	{
@@ -54,10 +60,17 @@ public class ShipShootController : MonoBehaviour
 			rightCounter = shootCd * 60;
 			rightShoot = true;
 		}
-		
-		GameObject instance = Instantiate(_cannonBall, transform.position, Quaternion.identity);
-		Destroy (instance, _shotLifetime);
-		instance.GetComponent<Rigidbody>().velocity=force*_speed;
+
+		DoShoot(force);
+	}
+
+	private void DoShoot(Vector3 force)
+	{
+		GameObject instance = Instantiate(_cannonBall, transform.position + new Vector3(10f, 0, 0), Quaternion.identity);
+		_audio.clip = instance.GetComponent<CannonBall>().ShotAudio;
+		_audio.Play();
+		Destroy(instance, _shotLifetime);
+		instance.GetComponent<Rigidbody>().velocity = force * _speed;
 	}
 
 	void Update()
