@@ -10,6 +10,7 @@ TagManager:
   - Ship
   - ShipArea
   - EnemyCannonBall
+  - Treasure
   layers:
   - Default
   - TransparentFX

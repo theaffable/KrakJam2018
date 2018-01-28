@@ -29,10 +29,10 @@ public class CameraController : MonoBehaviour {
 	[SerializeField]
 	Camera player3Shoot;
 
-	private KeyCode player0Switch = KeyCode.Joystick1Button5;
-	private KeyCode player1Switch = KeyCode.Joystick1Button4;
-	private KeyCode player2Switch = KeyCode.Joystick2Button5;
-	private KeyCode player3Switch = KeyCode.Joystick2Button4;
+	private KeyCode player0Switch = KeyCode.Joystick1Button4;
+	private KeyCode player1Switch = KeyCode.Joystick1Button5;
+	private KeyCode player2Switch = KeyCode.Joystick2Button4;
+	private KeyCode player3Switch = KeyCode.Joystick2Button5;
 
 	private int _player0index = 0;
 	private int _player1index = 0;

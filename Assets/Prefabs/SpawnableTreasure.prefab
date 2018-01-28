@@ -20,7 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4879259578550628}
   - component: {fileID: 108756349671298238}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Point light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -37,7 +37,7 @@ GameObject:
   - component: {fileID: 4757902973787072}
   - component: {fileID: 198212979402599424}
   - component: {fileID: 199568428015815412}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Gloe
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,9 +56,10 @@ GameObject:
   - component: {fileID: 23679607016455602}
   - component: {fileID: 95528268665062860}
   - component: {fileID: 114760128381584142}
-  m_Layer: 0
+  - component: {fileID: 65463570507398194}
+  m_Layer: 10
   m_Name: SpawnableTreasure
-  m_TagString: Untagged
+  m_TagString: Treasure
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -70,7 +71,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1730271924563002}
   m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: 526.8, y: -67.2, z: -37.6}
+  m_LocalPosition: {x: 136.04672, y: -76.39504, z: -37.6}
   m_LocalScale: {x: 20, y: 20, z: 20}
   m_Children:
   - {fileID: 4879259578550628}
@@ -143,6 +144,18 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1730271924563002}
   m_Mesh: {fileID: 4300000, guid: e670f5a77dc7cfe4eaf0e7c8e78245be, type: 3}
+--- !u!65 &65463570507398194
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1730271924563002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.6, y: 1.13, z: 0.44}
+  m_Center: {x: -0.000000014901161, y: 0, z: 0.14920811}
 --- !u!95 &95528268665062860
 Animator:
   serializedVersion: 3
@@ -207,7 +220,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a58462b5457fca8418728f0a0f9427fd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ObjectTtl: 5
+  ObjectTtl: 30
 --- !u!198 &198212979402599424
 ParticleSystem:
   m_ObjectHideFlags: 1

@@ -8,8 +8,8 @@ public class ShipCollisionHandler : MonoBehaviour
     public AudioClip GameOverSound;
     
     [SerializeField] ShipHealthController _shipHealthController;
-    [SerializeField] Text _gameOverText;
-    [SerializeField] ScoreController _scoreController;
+    [SerializeField] public Text _gameOverText;
+    [SerializeField] public ScoreController _scoreController;
 
     void Start()
     {
@@ -31,5 +31,11 @@ public class ShipCollisionHandler : MonoBehaviour
             gameObject.GetComponent<AudioSource>().Play();
             _scoreController.Stop();
         }
+
+		if (col.CompareTag("Treasure"))
+		{
+			_scoreController.AddScore(1500);
+			Destroy (col.gameObject);
+		}
     }
 }

@@ -45,4 +45,9 @@ public class ScoreController : MonoBehaviour {
 	private void UpdateScore() {
 		_scoreText.text = "Score: " + _score;
 	}
+
+	public void AddScore(int score) {
+		_score += score;
+		UpdateScore ();
+	}
 }

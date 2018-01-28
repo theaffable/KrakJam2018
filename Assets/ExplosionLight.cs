@@ -17,7 +17,7 @@ public class ExplosionLight : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-		light.intensity-=18;
+		light.intensity-=70;
 		if (light.intensity <= 0)
 		{
 			light.intensity = intensity;

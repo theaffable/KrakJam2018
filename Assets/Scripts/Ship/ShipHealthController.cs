@@ -11,14 +11,23 @@ public class ShipHealthController : MonoBehaviour {
 
 	[SerializeField]
 	HealthDisplayer _healthDisplayer;
+	ShipCollisionHandler _sch;
 
 	// Use this for initialization
 	void Start () {
+		_health = _maxHealth;
+		_sch = GetComponent<ShipCollisionHandler> ();
 		_healthDisplayer.Init (_maxHealth);
 	}
 
 	public void Damage(){
 		_health--;
 		_healthDisplayer.HideHeart ();
+		if (_health <= 0) {
+			_sch._gameOverText.gameObject.SetActive(true);
+			gameObject.GetComponent<AudioSource>().clip = _sch.GameOverSound;
+			gameObject.GetComponent<AudioSource>().Play();
+			_sch._scoreController.Stop();
+		}
 	}
 }
