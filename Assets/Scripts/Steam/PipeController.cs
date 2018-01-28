@@ -42,7 +42,9 @@ public class PipeController : MonoBehaviour {
 
 	void Update()
 	{
-		TryReturnToZero ();
+		if (!_isRotating) {
+			TryReturnToZero ();
+		}
 	}
 
 	private void EmitSounds()
