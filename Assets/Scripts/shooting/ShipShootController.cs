@@ -1,4 +1,5 @@
-﻿using System.ComponentModel;
+﻿using System.Collections.Generic;
+using System.ComponentModel;
 using UnityEngine;
 
 public class ShipShootController : MonoBehaviour
@@ -8,6 +9,9 @@ public class ShipShootController : MonoBehaviour
 	[SerializeField] private int shootCd = 4;
 	[SerializeField] private int _speed = 4;
 	[SerializeField] public float _shotLifetime = 2.0f;
+
+	[SerializeField]
+	private List<Camera> shakeCameraList = new List<Camera>();
 
 	private bool leftShoot = false;
 	private bool rightShoot = false;
@@ -66,11 +70,17 @@ public class ShipShootController : MonoBehaviour
 
 	private void DoShoot(Vector3 force)
 	{
+		foreach (Camera cam in shakeCameraList)
+		{
+			cam.GetComponent<ShakeAndLight>().DoShake();
+		}
+
 		GameObject instance = Instantiate(_cannonBall, transform.position + new Vector3(10f, 0, 0), Quaternion.identity);
 		_audio.clip = instance.GetComponent<CannonBall>().ShotAudio;
 		_audio.Play();
 		Destroy(instance, _shotLifetime);
 		instance.GetComponent<Rigidbody>().velocity = force * _speed;
+		
 	}
 
 	void Update()

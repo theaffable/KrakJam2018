@@ -9,6 +9,7 @@ public abstract class SteamDetector : MonoBehaviour {
 
 	[SerializeField]
 	protected int _id;
+	
 
 	// Use this for initialization
 	void Start () {
