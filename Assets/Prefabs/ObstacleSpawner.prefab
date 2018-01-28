@@ -53,4 +53,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ShipAreaTag: ShipArea
   SpawnDelay: 2
-  Prefab: {fileID: 0}
+  Prefab: {fileID: 1088267877325792, guid: 58dbc01fadf684947a3ede3636ff6e60, type: 2}

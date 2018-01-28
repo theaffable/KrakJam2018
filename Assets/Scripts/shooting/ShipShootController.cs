@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.ComponentModel;
 using UnityEngine;
 
 public class ShipShootController : MonoBehaviour
@@ -68,6 +67,7 @@ public class ShipShootController : MonoBehaviour
 	private void DoShoot(Vector3 force)
 	{
 		GameObject instance = Instantiate(_cannonBall, transform.position + new Vector3(10f, 0, 0), Quaternion.identity);
+		_audio.clip = instance.GetComponent<CannonBall>().ShotAudio;
 		_audio.Play();
 		Destroy(instance, _shotLifetime);
 		instance.GetComponent<Rigidbody>().velocity = force * _speed;
