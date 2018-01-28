@@ -599,6 +599,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
+    - target: {fileID: 114650483907749942, guid: ff8c2ce70d1cb8f43a503c2050f86bfe,
+        type: 2}
+      propertyPath: shipObject
+      value: 
+      objectReference: {fileID: 562075366}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ff8c2ce70d1cb8f43a503c2050f86bfe, type: 2}
   m_IsPrefabParent: 0
@@ -13065,15 +13070,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4344982477091462, guid: 58dbc01fadf684947a3ede3636ff6e60, type: 2}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4344982477091462, guid: 58dbc01fadf684947a3ede3636ff6e60, type: 2}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4344982477091462, guid: 58dbc01fadf684947a3ede3636ff6e60, type: 2}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4344982477091462, guid: 58dbc01fadf684947a3ede3636ff6e60, type: 2}
       propertyPath: m_LocalRotation.w
@@ -13091,6 +13096,10 @@ Prefab:
     - target: {fileID: 1088267877325792, guid: 58dbc01fadf684947a3ede3636ff6e60, type: 2}
       propertyPath: m_Name
       value: SpawnableObstacle (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 4344982477091462, guid: 58dbc01fadf684947a3ede3636ff6e60, type: 2}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 58dbc01fadf684947a3ede3636ff6e60, type: 2}
@@ -15980,6 +15989,11 @@ Prefab:
       propertyPath: m_RootOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 114884991049820066, guid: f20b9b02c813f9d45b93d3441f4d7132,
+        type: 2}
+      propertyPath: shipObject
+      value: 
+      objectReference: {fileID: 562075366}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f20b9b02c813f9d45b93d3441f4d7132, type: 2}
   m_IsPrefabParent: 0
@@ -24521,7 +24535,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 562075366}
   m_LocalRotation: {x: -0.5, y: 0.5, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -8.3, y: 0, z: -4}
+  m_LocalPosition: {x: -50, y: -12, z: -4}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1199408633}
